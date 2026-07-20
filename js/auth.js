@@ -1,4 +1,5 @@
 
+
 // --- Storage helpers ---
 function loadUsers() {
   const saved = localStorage.getItem("shopeasy_users");
@@ -46,6 +47,25 @@ function renderAuthArea() {
 
 renderAuthArea();
 
+// --- Redirect notice (shown on login.html/signup.html if sent here from a protected page) ---
+(function showRedirectNotice() {
+  const noticeEl = document.getElementById("redirectNotice");
+  if (!noticeEl) return;
+
+  const redirect = new URLSearchParams(window.location.search).get("redirect");
+  if (!redirect) return;
+
+  noticeEl.textContent = "Please log in to continue to checkout.";
+
+  // Also carry the redirect param over to the login/signup switch link
+  const switchLink = document.querySelector(".auth-switch a");
+  if (switchLink) {
+    const url = new URL(switchLink.href, window.location.href);
+    url.searchParams.set("redirect", redirect);
+    switchLink.href = url.pathname + url.search;
+  }
+})();
+
 // --- Signup form (only present on signup.html) ---
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
@@ -84,7 +104,9 @@ if (signupForm) {
     users.push({ name, email, password });
     saveUsers(users);
     setCurrentUser({ name, email });
-    window.location.href = "index.html";
+
+    const redirectTo = new URLSearchParams(window.location.search).get("redirect") || "index.html";
+    window.location.href = redirectTo;
   });
 }
 
@@ -108,6 +130,8 @@ if (loginForm) {
     }
 
     setCurrentUser({ name: match.name, email: match.email });
-    window.location.href = "index.html";
+
+    const redirectTo = new URLSearchParams(window.location.search).get("redirect") || "index.html";
+    window.location.href = redirectTo;
   });
 }
