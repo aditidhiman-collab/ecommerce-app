@@ -78,8 +78,18 @@ body {
   background-color: #dee2e6;
 }
 
+.product-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
 .product-info {
   padding: 16px;
+}
+
+.product-info--action {
+  padding-top: 0;
 }
 
 .product-info h3 {
@@ -213,6 +223,125 @@ body {
 
 .cart-overlay.active {
   display: block;
+}
+
+/* Product Detail Page */
+.breadcrumb {
+  padding: 20px 40px 0;
+  font-size: 0.9em;
+  color: #868e96;
+}
+
+.breadcrumb a {
+  color: #495057;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.product-detail {
+  display: flex;
+  gap: 40px;
+  max-width: 900px;
+  margin: 20px auto 60px;
+  padding: 0 40px;
+  flex-wrap: wrap;
+}
+
+.product-detail-image {
+  flex: 1 1 320px;
+  max-width: 380px;
+}
+
+.product-detail-image img {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #dee2e6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.product-detail-info {
+  flex: 1 1 320px;
+}
+
+.product-detail-info h2 {
+  font-size: 1.6em;
+  margin-bottom: 8px;
+}
+
+.product-detail-category {
+  display: inline-block;
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.8em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.product-detail-price {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #2b8a3e;
+  margin-bottom: 14px;
+}
+
+.product-detail-description {
+  color: #495057;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.product-detail-stock {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.product-detail-stock.in-stock {
+  color: #2b8a3e;
+}
+
+.product-detail-stock.out-of-stock {
+  color: #e03131;
+}
+
+.detail-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.detail-qty-row .quantity-controls {
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.detail-add-to-cart-btn {
+  padding: 12px 28px;
+  background-color: #212529;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.detail-add-to-cart-btn:hover {
+  background-color: #343a40;
+}
+
+.detail-add-to-cart-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.not-found {
+  text-align: center;
+  padding: 60px 20px;
 }
 
 /* Checkout Page */

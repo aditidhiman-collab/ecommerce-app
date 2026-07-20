@@ -1,11 +1,11 @@
 // Product data
 const products = [
-  { id: 1, name: "Wireless Headphones", price: 1499, category: "Electronics", image: "https://placehold.co/220x180?text=Headphones" },
-  { id: 2, name: "Smart Watch", price: 2999, category: "Electronics", image: "https://placehold.co/220x180?text=Smart+Watch" },
-  { id: 3, name: "Backpack", price: 999, category: "Accessories", image: "https://placehold.co/220x180?text=Backpack" },
-  { id: 4, name: "Bluetooth Speaker", price: 1799, category: "Electronics", image: "https://placehold.co/220x180?text=Speaker" },
-  { id: 5, name: "Sunglasses", price: 599, category: "Accessories", image: "https://placehold.co/220x180?text=Sunglasses" },
-  { id: 6, name: "Desk Lamp", price: 799, category: "Home", image: "https://placehold.co/220x180?text=Desk+Lamp" }
+  { id: 1, name: "Wireless Headphones", price: 1499, category: "Electronics", image: "https://placehold.co/220x180?text=Headphones", description: "Over-ear wireless headphones with noise isolation, 20-hour battery life, and a foldable design that's easy to carry.", stock: 14 },
+  { id: 2, name: "Smart Watch", price: 2999, category: "Electronics", image: "https://placehold.co/220x180?text=Smart+Watch", description: "Track your steps, heart rate, and sleep with this lightweight smart watch. Compatible with iOS and Android.", stock: 8 },
+  { id: 3, name: "Backpack", price: 999, category: "Accessories", image: "https://placehold.co/220x180?text=Backpack", description: "Durable, water-resistant backpack with a padded laptop sleeve and multiple compartments for everyday carry.", stock: 20 },
+  { id: 4, name: "Bluetooth Speaker", price: 1799, category: "Electronics", image: "https://placehold.co/220x180?text=Speaker", description: "Compact Bluetooth speaker with rich bass, 10-hour playtime, and IPX5 splash resistance for outdoor use.", stock: 11 },
+  { id: 5, name: "Sunglasses", price: 599, category: "Accessories", image: "https://placehold.co/220x180?text=Sunglasses", description: "UV-protective polarized sunglasses with a lightweight frame, suited for everyday wear.", stock: 25 },
+  { id: 6, name: "Desk Lamp", price: 799, category: "Home", image: "https://placehold.co/220x180?text=Desk+Lamp", description: "Adjustable LED desk lamp with three brightness levels and a flexible arm for focused lighting.", stock: 17 }
 ];
 
 // Render products into the grid
@@ -18,10 +18,14 @@ function renderProducts(productList = products) {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p class="product-price">₹${product.price}</p>
+      <a href="product.html?id=${product.id}" class="product-link">
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p class="product-price">₹${product.price}</p>
+        </div>
+      </a>
+      <div class="product-info product-info--action">
         <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
       </div>
     `;

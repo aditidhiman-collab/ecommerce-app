@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEasy - Product Details</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" style="text-decoration:none;color:inherit;"><h1 class="logo">ShopEasy</h1></a>
+    <div class="cart-icon" id="cartIcon">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    <a href="index.html">Products</a> / <span id="breadcrumbName">Product</span>
+  </nav>
+
+  <main id="productDetailRoot">
+    <!-- Product detail content inserted by JavaScript -->
+  </main>
+
+  <div id="cartPanel" class="cart-panel">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-total">
+      <strong>Total: ₹<span id="cartTotal">0</span></strong>
+      <a href="checkout.html" class="checkout-btn">Checkout</a>
+    </div>
+  </div>
+  <div id="cartOverlay" class="cart-overlay"></div>
+
+  <footer>
+    <p>&copy; 2026 ShopEasy. Built for practice.</p>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>
