@@ -52,6 +52,25 @@ body {
   cursor: pointer;
 }
 
+.search-input {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  font-size: 0.95em;
+  min-width: 220px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #495057;
+}
+
+.no-results-msg {
+  text-align: center;
+  color: #868e96;
+  margin: -8px 0 24px;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

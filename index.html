@@ -19,6 +19,8 @@
     <h2 class="section-title">Our Products</h2>
 
     <div class="controls-bar">
+      <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+
       <select id="categoryFilter">
         <option value="all">All Categories</option>
         <option value="Electronics">Electronics</option>
@@ -32,6 +34,8 @@
         <option value="high-low">Price: High to Low</option>
       </select>
     </div>
+
+    <p id="noResultsMsg" class="no-results-msg" style="display:none;">No products match your search.</p>
 
     <div class="product-grid" id="productGrid">
       <!-- Products inserted by JavaScript -->

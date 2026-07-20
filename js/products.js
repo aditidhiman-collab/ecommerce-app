@@ -37,10 +37,15 @@ function renderProducts(productList = products) {
 function applyFiltersAndSort() {
   const category = document.getElementById("categoryFilter").value;
   const sortOrder = document.getElementById("sortPrice").value;
+  const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
 
   let filtered = category === "all"
     ? [...products]
     : products.filter(p => p.category === category);
+
+  if (searchTerm !== "") {
+    filtered = filtered.filter(p => p.name.toLowerCase().includes(searchTerm));
+  }
 
   if (sortOrder === "low-high") {
     filtered.sort((a, b) => a.price - b.price);
@@ -49,11 +54,17 @@ function applyFiltersAndSort() {
   }
 
   renderProducts(filtered);
+
+  const noResultsMsg = document.getElementById("noResultsMsg");
+  if (noResultsMsg) {
+    noResultsMsg.style.display = filtered.length === 0 ? "block" : "none";
+  }
 }
 
 if (document.getElementById("categoryFilter")) {
   document.getElementById("categoryFilter").addEventListener("change", applyFiltersAndSort);
   document.getElementById("sortPrice").addEventListener("change", applyFiltersAndSort);
+  document.getElementById("searchInput").addEventListener("input", applyFiltersAndSort);
 }
 
 renderProducts();
