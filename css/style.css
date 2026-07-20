@@ -68,7 +68,19 @@ body {
   margin: 0 auto;
   padding: 20px 20px 60px;
 }
+.auth-notice {
+  text-align: center;
+  background-color: #fff3bf;
+  color: #664d03;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
 
+.auth-notice:empty {
+  display: none;
+}
 .auth-form {
   background: white;
   border-radius: 10px;
